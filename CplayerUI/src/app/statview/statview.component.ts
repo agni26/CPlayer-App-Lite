@@ -12,6 +12,7 @@ import { RouterService } from '../router.service';
 export class StatviewComponent implements OnInit {
 
   stat :any;
+  bool: Boolean;
 
   // dependency injection of cricapi service and also using @Inject to specify that some the value is injected
   constructor(private diaRef: MatDialogRef<StatOpenerComponent>, @Inject(MAT_DIALOG_DATA) private data: any,
@@ -19,14 +20,13 @@ export class StatviewComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (sessionStorage.getItem('token') == null || sessionStorage.getItem('username') == null) {
-      this.route.tologin();
-    }
-
     // call api to get all the stats of a particular player by his pid
     this.cric.statsPlayer(this.data.pid).subscribe(
       res => {
-        this.stat = res
+        this.stat = res;
+        if(this.stat.imageURL == null){
+          this.stat.imageURL = "../../assets/image.png"
+        }
       },
       err => console.log(err)
     )

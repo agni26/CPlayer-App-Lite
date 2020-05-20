@@ -11,13 +11,8 @@ export class RouterService {
   constructor(private router: Router, private location: Location) { }
 
   // method to go to login form
-  tologin(){
-    this.router.navigate(["/login"])
-  }
-
-  // method to go to sign up form
-  tosignup(){
-    this.router.navigate(["/signup"])
+  tohelper(){
+    this.router.navigate(["/dashboard/help"])
   }
 
   // method to load the dashboard component
@@ -32,7 +27,7 @@ export class RouterService {
 
   // method to redirect to fav component
   tofav(){
-    this.router.navigate(["/favs"])
+    this.router.navigate(["/dashboard/fav"])
   }
 
   // method to navigate to stat opener with the player pid whose statistics are to be shown

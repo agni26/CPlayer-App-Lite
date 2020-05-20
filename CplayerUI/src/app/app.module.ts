@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,39 +22,28 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatTabsModule } from '@angular/material/tabs';
-import { SearchComponent } from './search/search.component';
 import { StatsComponent } from './stats/stats.component';
-import { FavsComponent } from './favs/favs.component';
-import { EdituserComponent } from './edituser/edituser.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { SignupComponent } from './signup/signup.component';
-import { ContactComponent } from './contact/contact.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
-import { RecomComponent } from './recom/recom.component';
 import { StatOpenerComponent } from './stat-opener/stat-opener.component';
 import { StatviewComponent } from './statview/statview.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { NewsComponent } from './news/news.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { RouteheplerComponent } from './routehepler/routehepler.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    SearchComponent,
     StatsComponent,
-    FavsComponent,
-    EdituserComponent,
     DashboardComponent,
     CalendarComponent,
-    SignupComponent,
-    ContactComponent,
-    RecomComponent,
     StatOpenerComponent,
     StatviewComponent,
-    HeaderComponent,
-    FooterComponent,
+    NewsComponent,
+    FavouritesComponent,
+    RouteheplerComponent,
   ],
   imports: [
     BrowserModule,

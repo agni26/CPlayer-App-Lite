@@ -29,10 +29,6 @@ export class StatOpenerComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (sessionStorage.getItem('token') == null || sessionStorage.getItem('username') == null) {
-      this.route.tologin();
-    }
-
   }
 
 }

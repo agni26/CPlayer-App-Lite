@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Find } from '../find';
 import { CricapiService } from '../cricapi.service';
 import { RouterService } from '../router.service';
+import { FavouritesService } from '../favourites.service';
+import { Favs } from '../fav';
 
 @Component({
   selector: 'app-stats',
@@ -12,8 +14,9 @@ export class StatsComponent implements OnInit {
   config: any;
   val: string;
   list: Array<Find> = [];
+  fav: Favs;
 
-  constructor(private cricapi: CricapiService, private route: RouterService) {
+  constructor(private cricapi: CricapiService, private route: RouterService, private favser: FavouritesService) {
     //pagination
     this.val = "";
     this.config = {
@@ -29,10 +32,6 @@ export class StatsComponent implements OnInit {
     this.config.currentPage = event;
   }
   ngOnInit() {
-
-    if (sessionStorage.getItem('token') == null || sessionStorage.getItem('username') == null) {
-      this.route.tologin();
-    }
 
   }
 
@@ -54,5 +53,29 @@ export class StatsComponent implements OnInit {
   viewStats(data){
     this.route.tostatOpener(data.pid);
   }
+
+  addToFav(data) {
+    data.status = false;
+    this.cricapi.statsPlayer(data.pid).subscribe(
+      res => {
+        this.fav = res;
+        this.favser.addData(this.fav).subscribe(
+          res => console.log("fav increased"),
+          err => console.log(err)
+          )
+      },
+      err => console.log(err)
+    )
+  }
+
+  // it will remove a player from the favourites by calling there respective services
+  removeFromFav(data) {
+    data.status = true;
+    this.favser.deleteData(data.pid).subscribe(
+      res => console.log("fav decreased"),
+      err => console.log(err)
+    )
+  }
+
 
 }

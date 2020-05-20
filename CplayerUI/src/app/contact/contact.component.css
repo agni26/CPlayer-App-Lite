@@ -1,9 +1,0 @@
-.cardContainer{
-   display: flex;
-   flex-wrap: wrap;
-}
-.card{
-   width: 240px;
-   margin: 10px 35px;
-   margin-bottom: 60px;
-}
